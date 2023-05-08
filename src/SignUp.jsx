@@ -2,9 +2,6 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './style.css';
-const dotenv = require('dotenv');
-
-dotenv.config();
 
 function SignUp() {
     const navigate = useNavigate();
@@ -30,7 +27,7 @@ function SignUp() {
         formData.append('resume', resume);
 
         try {
-            await axios.post(process.env.BACKURI, formData).then((res)=>{
+            await axios.post(process.env.REACT_APP_BACKURI, formData).then((res)=>{
                 if(res.data.message==='1'){
                     navigate('/success');
                 }else{
